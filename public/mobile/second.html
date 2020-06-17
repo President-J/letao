@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <title>首页</title>
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <div class="lt-aside body-bg">
+        <a href="#" class="brand">电商全端</a>
+        <div class="user">
+            <img src="./images/dog.jpg" alt="">
+            <p>超级管理员</p>
+        </div>
+        <!-- 导航 -->
+        <ul class="lt-nav">
+            <li>
+                <a href="user.html"><span class="glyphicon glyphicon-user"></span>  用户管理</a>
+            </li>
+            <li>
+                <a href="#" class="category">
+                    <span class="glyphicon glyphicon-list"></span>  分类管理
+                </a>
+                <div class="child" style="display:block">
+                    <a href="first.html">一级菜单</a>
+                    <a href="second.html" class="current">二级菜单</a>
+                </div>
+            </li>
+            <li>
+                <a href="product.html"><span class="glyphicon glyphicon-tags"></span>  商品管理</a>
+            </li>
+        </ul>
+    </div>  
+
+    <div class="lt-main">
+        <div class="topbar">
+            <a href="#" class="pull-left top-menu">
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </a>
+            <a href="#" class="pull-right top-logout">
+               <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </div>
+        <div class="container">
+            <ol class="breadcrumb mt-20">
+                <li><a href="#">管理系统</a></li>
+                <li><a href="#">分类管理</a></li>
+                <li class="active">二级分类</li>
+            </ol>
+            <!-- 添加分类按钮 -->
+            <button class="btn btn-default" data-toggle="modal" data-target="#addModal">添加分类</button>
+            <!-- 分类表格 -->
+            <table class="table table-bordered table-hover mt-20">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>一级分类名称</th>
+                        <th>二级分类名称</th>
+                        <th>二级分类LOGO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>名称</td>
+                        <td>名称</td>
+                        <td>logo</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 分页父容器 -->
+            <div class="pull-right">
+                <ul id="paginator"></ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 模态框 -->
+    <div class="modal fade userModal" tabindex="-1" role="dialog" id="addModal">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">添加分类</h4>
+            </div>
+            <div class="modal-body">
+              <form id="form">
+                    <div class="btn-group">
+                        <button class="btn btn-default btn-md dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            请选择一级分类 <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu cate-list">
+                          <li>老方馆</li>
+                          <li>丹丹馆</li>
+                          <li>胖胖馆</li>
+                        </ul>
+                    </div>
+                    <!-- 二级分类名称 -->
+                  <div class="form-group">
+                      <input type="text" name="categoryName" class="form-control mt-20" id="category" placeholder="请输入二级分类名称">
+                  </div>
+                  <!-- 分类logo -->
+                  <div class="form-group">
+                      <label for="file" class="btn btn-default">上传图片</label>
+                      <input type="file" name="pic1" id="file" data-url="/category/addSecondCategoryPic" style="display:none">
+                  </div>
+                  <div class="form-group">
+                      <img src="./images/default.png" class="logo" width="80" alt="">
+                      <input type="hidden" name="brandLogo" class="hode-logo">
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+              <button type="submit" class="btn btn-primary btn-ok" form="form">确定</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+
+      <script type="text/html" id="tmp">
+          {{ each rows v i }}
+            <tr>
+                <td>{{ i + 1 + (page-1) * size}}</td>
+                <td>{{v.categoryName}}</td>
+                <td>{{v.brandName}}</td>
+                <td><img src="{{v.brandLogo}}" height="50" alt=""></td>
+            </tr>
+            {{/each}}
+      </script>
+
+
+      <script type="text/html" id="tmp-cate">
+        {{each rows v i}}
+            <li><a href="#" data-id={{v.id}}>{{v.categoryName}}></a></li>
+        {{/each}}
+      </script>
+
+
+
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <script src="./lib/echarts/echarts.min.js"></script>
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/islogin.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

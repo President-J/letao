@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>乐淘购物车</title>
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!-- 引入字体图标库的css -->
+  <link rel="stylesheet" href="../lib/fa/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../lib/mui/css/mui.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/cart.css">
+  <link rel="icon" href="./favicon.ico">
+</head>
+
+<body>
+  <!-- 全屏容器 -->
+  <div class="ct_container">
+    <!-- 乐淘头部 -->
+    <header class="ct_header">
+      <!-- 点击 a 标签, 返回上一页 javascript:history.go(-1); -->
+      <a href="javascript:history.go(-1);" class="right"><span class="fa fa-home"></span></a>
+      <h3>购物车</h3>
+      <a href="javascript:history.go(-1);" class="left"><span class="fa fa-refresh"></span></a>
+
+    </header>
+
+    <!-- 乐淘主体 -->
+    <div class="ct_content">
+      <div class="ct_wrapper ">
+        <div id="refreshContainer" class="mui-scroll-wrapper ">
+          <div class="mui-scroll">
+
+            <ul class="mui-table-view">
+              <!-- 挖个坑 -->
+
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cart_order">
+      <div>订单总金额：&yen;<span id="cartAmount">0.00</span> <a href="#">生成订单</a></div>
+
+    </div>
+    <!-- 乐淘底部 -->
+    <footer class="ct_footer">
+      <a class="tab_home fa fa-home now" href="../index.html"><span>首页</span></a>
+      <a class="tab_cate fa fa-bars" href="../category.html"><span>分类</span></a>
+      <a class="tab_cart fa fa-shopping-cart" href="cart.html"><span>购物车</span></a>
+      <a class="tab_user fa fa-user" href="user/index.html"><span>会员中心</span></a>
+    </footer>
+  </div>
+
+
+  <script type="text/html" id="cart">
+
+  <% for(var i=1;i<data.length;i++){ %>
+    <% var item = data[i]; %>
+    <li data-product class="mui-table-view-cell mui-media">
+      <div data-id="<%=item.id%>" class="mui-slider-right mui-disabled">
+        <a  class="mui-btn mui-btn-blue mui-icon mui-icon-compose " ></a>
+        <a  class="mui-btn mui-btn-red mui-icon mui-icon-trash " ></a>
+      </div>
+      <div class="mui-slider-handle">
+        <div class="mui-table-cell">
+
+          <!-- 左侧图片 -->
+          <a href="javascript:;" class="">
+            <% var addr='../images/none1.png';
+            if(item.pic && item.pic[0] && item.pic[0].picAddr){
+              addr = item.pic[0].picAddr;
+            } 
+            %>
+            <img src="<%=addr%>" class="mui-media-object mui-pull-left" act="">
+            <div class="mui-media-body">
+              <p class="name"><%=item.proName%></p>
+              <p class="info">
+                <span class="price"><%=item.price%></span>
+                <span class="oldPrice"><%=item.oldPrice%></span>
+                <span class="number"><%=item.num%></span>
+              </p>
+              <p><span class="size">鞋码:<%=item.size%></span></p>
+              <input data-id="<%=data[i].id%>"
+              data-price="<%=data[i].price%>"
+              type="checkbox"  />
+            </div>
+           
+          </a>
+
+          
+
+        </div>
+      </div>
+    </li>
+  <% } %>
+  
+
+</script>
+  <script type="text/html" id="edit">
+    <div class="cart_update">
+      <div class="p_size">
+        尺码:
+        <%
+        var itemArr = productSize.split('-');
+      
+        for(var i=itemArr[0];i<=itemArr[1];i++){%>
+<span class="btn_size <%=i==size ? 'now':''%>"><%=i%></span>
+<% } %>
+       
+      </div>
+      <div class="p_number">
+        数量:<span class="jian">-</span><input  type="text" value="<%=num%>" data-max="<%=productNum %>"><span class="jia">+</span>
+      </div>
+    </div>
+  </script>
+  <script type="text/html" id="delete">
+    <div class="cart_update">
+      <div class="p_size">
+        尺码:
+        <%
+        var itemArr = productSize.split('-');
+      
+        for(var i=itemArr[0];i<=itemArr[1];i++){%>
+<span class="btn_size <%=i==size ? 'now':''%>"><%=i%></span>
+<% } %>
+       
+      </div>
+      <div class="p_number">
+        数量:<span class="jian">-</span><input  type="text" value="<%=num%>" data-max="<%=productNum %>"><span class="jia">+</span>
+      </div>
+    </div>
+  </script>
+
+
+
+  <script src="../lib/mui/js/mui.js"></script>
+  <script src="../lib/zepto/zepto.min.js"></script>
+  <script src="../lib/artTemplate/template-native.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/cart.js"></script>
+</body>
+
+</html>

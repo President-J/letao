@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <title>首页</title>
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <div class="lt-aside body-bg">
+        <a href="#" class="brand">电商全端</a>
+        <div class="user">
+            <img src="./images/dog.jpg" alt="">
+            <p>超级管理员</p>
+        </div>
+        <!-- 导航 -->
+        <ul class="lt-nav">
+            <li>
+                <a href="user.html"><span class="glyphicon glyphicon-user"></span>  用户管理</a>
+            </li>
+            <li>
+                <a href="#" class="category">
+                    <span class="glyphicon glyphicon-list"></span>  分类管理
+                </a>
+                <div class="child" style="display:none">
+                    <a href="first.html">一级菜单</a>
+                    <a href="second.html">二级菜单</a>
+                </div>
+            </li>
+            <li>
+                <a href="product.html"><span class="glyphicon glyphicon-tags"></span>  商品管理</a>
+            </li>
+        </ul>
+    </div>  
+
+    <div class="lt-main">
+        <div class="topbar">
+            <a href="#" class="pull-left top-menu">
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </a>
+            <a href="#" class="pull-right top-logout">
+               <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </div>
+        <div class="container">
+            <ol class="breadcrumb mt-20">
+                <li><a href="#">管理系统</a></li>
+                <li class="active">首页</li>
+            </ol>
+            <div class="container">
+                <div class="col-md-6">
+                    <div id="person" style="height:400px"></div>
+                </div>
+                <div class="col-md-6">
+                    <div id="number" style="height:400px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <script src="./lib/echarts/echarts.min.js"></script>
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/islogin.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

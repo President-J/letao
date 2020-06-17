@@ -1,0 +1,125 @@
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+.body-bg {
+    background-color: rgb(4, 42, 59);
+}
+.mt-150 {
+    margin-top: 150px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.panel-title {
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+}   
+
+/* 公共侧边栏 */ 
+.lt-aside {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 180px;
+    height: 100%;
+    z-index: 9999;
+    transition: all 0.4s;
+
+    .brand {
+        display: block;
+        background-color: #367FA9;
+        height: 50px;
+        color: #fff;
+        text-align: center;
+        line-height: 50px;
+        font-size: 26px;
+    }
+
+    .user {
+        margin-top: 30px;
+        text-align: center;
+        img {
+            width: 80px;
+            border-radius: 50%;
+        }
+        p {
+            margin-top: 10px;
+            color: #fff;
+            font-size: 18px;
+        }
+    }
+
+    .lt-nav {
+        list-style: none;
+        margin: 40px 0; 
+        padding: 0;
+        a {
+            color: #fff;
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 40px;
+        }
+        a.current {
+            border-left: 3px solid #006699;
+            background-color: #1D1F21;
+        }
+        .child {
+            a {
+                padding-left: 60px;
+            }
+        }
+    }
+}
+
+.lt-aside.hiddenMenu {
+    left: -180px;
+}
+
+/* 公共的主体*/ 
+.lt-main {
+    padding-left: 180px;
+    padding-top: 50px;
+    transition: all 0.4s;
+    .topbar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 50px;
+        padding-left: 180px;
+        background-color: #3C8DBC;
+        transition: all 0.4s;
+        a {
+            display: block;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            font-size: 20px;
+        }
+    }
+}
+
+.lt-main.hiddenMenu {
+    padding-left: 0;
+    .topbar {
+        padding-left: 0;
+    }
+}
+
+
+/* 表格样式 */ 
+.table-bordered>thead>tr>th,
+.table-bordered>tbody>tr>td {
+    text-align: center;
+    vertical-align: middle;
+}

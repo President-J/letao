@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>乐淘商城</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!-- 引入字体图标库的css -->
+  <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./lib/mui/css/mui.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/search.css">
+  <link rel="icon" href="favicon.ico">
+</head>
+<body>
+
+<!-- 全屏容器 -->
+<div class="ct_container">
+
+  <!-- 乐淘头部 -->
+  <header class="ct_header">
+    <!-- 点击 a 标签, 返回上一页 javascript:history.go(-1); -->
+    <a href="javascript:history.back();" class="left"><span class="fa fa-arrow-left"></span></a>
+    <h3>搜索中心</h3>
+  </header>
+  <div class="ct_content">
+    <div class="ct_wrapper">
+      <!-- 搜索输入框 -->
+      <div class="ct_search">
+        <!-- 在移动端调用虚拟键盘的时候enter键变成搜索按钮 -->
+        <form action="#">
+          <input type="search" placeholder="搜索你喜欢的商品">
+          
+        </form>
+        <a href="javascript:;">搜索</a>
+      </div>
+      <!-- 搜索历史区域 -->
+      <div class="ct_history"></div>
+    </div>
+  </div>
+
+  
+
+  <!-- 乐淘底部 -->
+  
+  <footer class="ct_footer">
+      <a class="tab_home fa fa-home now" href="index.html"><span>首页</span></a>
+      <a class="tab_cate fa fa-bars" href="category.html"><span>分类</span></a>
+      <a class="tab_cart fa fa-shopping-cart" href="user/cart.html"><span>购物车</span></a>
+      <a class="tab_user fa fa-user" href="user/index.html"><span>会员中心</span></a>
+    </footer>
+</div>
+
+<script type="text/html" id="historyTpl">
+
+  
+
+</script>
+
+
+<script src="./lib/zepto/zepto.min.js"></script>
+<script src="./lib/mui/js/mui.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/search.js"></script>
+</body>
+</html>
